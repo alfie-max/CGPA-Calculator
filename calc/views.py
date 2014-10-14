@@ -1,12 +1,27 @@
+import config
 from calc import app
-from flask import render_template
-from forms import CalcForm
+from flask import render_template, request
+from forms import WelcomeForm, CalcForm
 
-@app.route('/')
-@app.route('/home')
+@app.route('/', methods=['GET','POST'])
 def home():
-    form = CalcForm()
-    return render_template('home.html', form=form)
+    form = WelcomeForm(request.form)
+    calcform = CalcForm(request.form)
+
+    if request.method == 'POST' and form.validate():
+        name = form.name.data
+        stream = config.STREAM_CODE[request.form['stream']]
+        return render_template('calc.html', name=name, 
+                               syllabus = config.STREAM[stream],
+                               stream = stream,
+                               calc = calcform)
+
+    elif request.method == 'POST' and calcform.validate():
+        return render_template('result.html')
+
+    else:
+        return render_template('home.html', form = form, 
+                               streams = config.STREAM_CODE)
 
 @app.route('/about')
 def about():

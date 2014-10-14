@@ -1,0 +1,377 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div>
+    <h2>Welcome {{ name }}<h2>
+    <h3>{{ stream }}</h3>
+  </div>
+
+  <div>
+    <form action = "{{ url_for('home') }}" method=post>
+
+      <table>
+	<tr>
+	  <th>  S1 & S2	</th>
+	  <th>  Credits </th>
+	  <th>  Grade </th>
+	</tr>
+	<tr>
+	  <th>	101	</th>
+	  <td> {{ calc.c_101	}}</td>
+	  <td> {{ calc.g_101	}}</td>
+	</tr>
+	<tr>
+	  <th>	102	</th>
+	  <td> {{ calc.c_102	}}</td>
+	  <td> {{ calc.g_102	}}</td>
+	</tr>
+	<tr>
+	  <th>	103	</th>
+	  <td> {{ calc.c_103	}}</td>
+	  <td> {{ calc.g_103	}}</td>
+	</tr>
+	<tr>
+	  <th>	103(P)	</th>
+	  <td> {{ calc.c_103P	}}</td>
+	  <td> {{ calc.g_103P	}}</td>
+	</tr>
+	<tr>
+	  <th>	104	</th>
+	  <td> {{ calc.c_104	}}</td>
+	  <td> {{ calc.g_104	}}</td>
+	</tr>
+	<tr>
+	  <th>	104(P)	</th>
+	  <td> {{ calc.c_104P	}}</td>
+	  <td> {{ calc.g_104P	}}</td>
+	</tr>
+	<tr>
+	  <th>	105	</th>
+	  <td> {{ calc.c_105	}}</td>
+	  <td> {{ calc.g_105	}}</td>
+	</tr>
+	<tr>
+	  <th>	106	</th>
+	  <td> {{ calc.c_106	}}</td>
+	  <td> {{ calc.g_106	}}</td>
+	</tr>
+	<tr>
+	  <th>	107	</th>
+	  <td> {{ calc.c_107	}}</td>
+	  <td> {{ calc.g_107	}}</td>
+	</tr>
+	<tr>
+	  <th>	108	</th>
+	  <td> {{ calc.c_108	}}</td>
+	  <td> {{ calc.g_108	}}</td>
+	</tr>
+	<tr>
+	  <th>	109(P)	</th>
+	  <td> {{ calc.c_109P	}}</td>
+	  <td> {{ calc.g_109P	}}</td>
+	</tr>
+	<tr>
+	  <th>	110A(P)	</th>
+	  <td> {{ calc.c_110AP	}}</td>
+	  <td> {{ calc.g_110AP	}}</td>
+	</tr>
+	<tr>
+	  <th>	110B(P)	</th>
+	  <td> {{ calc.c_110BP	}}</td>
+	  <td> {{ calc.g_110BP	}}</td>
+	</tr>
+      </table>
+
+      <table>
+	<tr>
+	  <th>  S3	</th>
+	  <th>  Credits </th>
+	  <th>  Grade </th>
+	</tr>
+	<tr>
+	  <th>	301	</th>
+	  <td> {{ calc.c_301	}}</td>
+	  <td> {{ calc.g_301	}}</td>
+	</tr>
+	<tr>
+	  <th>	302	</th>
+	  <td> {{ calc.c_302	}}</td>
+	  <td> {{ calc.g_302	}}</td>
+	</tr>
+	<tr>
+	  <th>	303	</th>
+	  <td> {{ calc.c_303	}}</td>
+	  <td> {{ calc.g_303	}}</td>
+	</tr>
+	<tr>
+	  <th>	304	</th>
+	  <td> {{ calc.c_304	}}</td>
+	  <td> {{ calc.g_304	}}</td>
+	</tr>
+	<tr>
+	  <th>	305	</th>
+	  <td> {{ calc.c_305	}}</td>
+	  <td> {{ calc.g_305	}}</td>
+	</tr>
+	<tr>
+	  <th>	306	</th>
+	  <td> {{ calc.c_306	}}</td>
+	  <td> {{ calc.g_306	}}</td>
+	</tr>
+	<tr>
+	  <th>	307(P)	</th>
+	  <td> {{ calc.c_307P	}}</td>
+	  <td> {{ calc.g_307P	}}</td>
+	</tr>
+	<tr>
+	  <th>	308(P)	</th>
+	  <td> {{ calc.c_308P	}}</td>
+	  <td> {{ calc.g_308P	}}</td>
+	</tr>
+      </table>
+
+      <table>
+	<tr>
+	  <th>  S4	</th>
+	  <th>  Credits </th>
+	  <th>  Grade </th>
+	</tr>
+	<tr>
+	  <th>	401	</th>
+	  <td> {{ calc.c_401	}}</td>
+	  <td> {{ calc.g_401	}}</td>
+	</tr>
+	<tr>
+	  <th>	402	</th>
+	  <td> {{ calc.c_402	}}</td>
+	  <td> {{ calc.g_402	}}</td>
+	</tr>
+	<tr>
+	  <th>	403	</th>
+	  <td> {{ calc.c_403	}}</td>
+	  <td> {{ calc.g_403	}}</td>
+	</tr>
+	<tr>
+	  <th>	404	</th>
+	  <td> {{ calc.c_404	}}</td>
+	  <td> {{ calc.g_404	}}</td>
+	</tr>
+	<tr>
+	  <th>	405	</th>
+	  <td> {{ calc.c_405	}}</td>
+	  <td> {{ calc.g_405	}}</td>
+	</tr>
+	<tr>
+	  <th>	406	</th>
+	  <td> {{ calc.c_406	}}</td>
+	  <td> {{ calc.g_406	}}</td>
+	</tr>
+	<tr>
+	  <th>	407(P)	</th>
+	  <td> {{ calc.c_407P	}}</td>
+	  <td> {{ calc.g_407P	}}</td>
+	</tr>
+	<tr>
+	  <th>	408(P)	</th>
+	  <td> {{ calc.c_408P	}}</td>
+	  <td> {{ calc.g_408P	}}</td>
+	</tr>
+      </table>
+
+      <table>
+	<tr>
+	  <th>  S5	</th>
+	  <th>  Credits </th>
+	  <th>  Grade </th>
+	</tr>
+	<tr>
+	  <th>	501	</th>
+	  <td> {{ calc.c_501	}}</td>
+	  <td> {{ calc.g_501	}}</td>
+	</tr>
+	<tr>
+	  <th>	502	</th>
+	  <td> {{ calc.c_502	}}</td>
+	  <td> {{ calc.g_502	}}</td>
+	</tr>
+	<tr>
+	  <th>	503	</th>
+	  <td> {{ calc.c_503	}}</td>
+	  <td> {{ calc.g_503	}}</td>
+	</tr>
+	<tr>
+	  <th>	504	</th>
+	  <td> {{ calc.c_504	}}</td>
+	  <td> {{ calc.g_504	}}</td>
+	</tr>
+	<tr>
+	  <th>	505	</th>
+	  <td> {{ calc.c_505	}}</td>
+	  <td> {{ calc.g_505	}}</td>
+	</tr>
+	<tr>
+	  <th>	506	</th>
+	  <td> {{ calc.c_506	}}</td>
+	  <td> {{ calc.g_506	}}</td>
+	</tr>
+	<tr>
+	  <th>	507(P)	</th>
+	  <td> {{ calc.c_507P	}}</td>
+	  <td> {{ calc.g_507P	}}</td>
+	</tr>
+	<tr>
+	  <th>	508(P)	</th>
+	  <td> {{ calc.c_508P	}}</td>
+	  <td> {{ calc.g_508P	}}</td>
+	</tr>
+      </table>
+      
+      <table>
+	<tr>
+	  <th>  S6	</th>
+	  <th>  Credits </th>
+	  <th>  Grade </th>
+	</tr>
+	<tr>
+	  <th>	601	</th>
+	  <td> {{ calc.c_601	}}</td>
+	  <td> {{ calc.g_601	}}</td>
+	</tr>
+	<tr>
+	  <th>	602	</th>
+	  <td> {{ calc.c_602	}}</td>
+	  <td> {{ calc.g_602	}}</td>
+	</tr>
+	<tr>
+	  <th>	603	</th>
+	  <td> {{ calc.c_603	}}</td>
+	  <td> {{ calc.g_603	}}</td>
+	</tr>
+	<tr>
+	  <th>	604	</th>
+	  <td> {{ calc.c_604	}}</td>
+	  <td> {{ calc.g_604	}}</td>
+	</tr>
+	<tr>
+	  <th>	605	</th>
+	  <td> {{ calc.c_605	}}</td>
+	  <td> {{ calc.g_605	}}</td>
+	</tr>
+	<tr>
+	  <th>	L01	</th>
+	  <td> {{ calc.c_L01	}}</td>
+	  <td> {{ calc.g_L01	}}</td>
+	</tr>
+	<tr>
+	  <th>	607(P)	</th>
+	  <td> {{ calc.c_607P	}}</td>
+	  <td> {{ calc.g_607P	}}</td>
+	</tr>
+	<tr>
+	  <th>	608(P)	</th>
+	  <td> {{ calc.c_608P	}}</td>
+	  <td> {{ calc.g_608P	}}</td>
+	</tr>
+      </table>
+
+      <table>
+	<tr>
+	  <th>  S7	</th>
+	  <th>  Credits </th>
+	  <th>  Grade </th>
+	</tr>
+	<tr>
+	  <th>	701	</th>
+	  <td> {{ calc.c_701	}}</td>
+	  <td> {{ calc.g_701	}}</td>
+	</tr>
+	<tr>
+	  <th>	702	</th>
+	  <td> {{ calc.c_702	}}</td>
+	  <td> {{ calc.g_702	}}</td>
+	</tr>
+	<tr>
+	  <th>	703	</th>
+	  <td> {{ calc.c_703	}}</td>
+	  <td> {{ calc.g_703	}}</td>
+	</tr>
+	<tr>
+	  <th>	704	</th>
+	  <td> {{ calc.c_704	}}</td>
+	  <td> {{ calc.g_704	}}</td>
+	</tr>
+	<tr>
+	  <th>	L02	</th>
+	  <td> {{ calc.c_L02	}}</td>
+	  <td> {{ calc.g_L02	}}</td>
+	</tr>
+	<tr>
+	  <th>	L03	</th>
+	  <td> {{ calc.c_L03	}}</td>
+	  <td> {{ calc.g_L03	}}</td>
+	</tr>
+	<tr>
+	  <th>	707(P)	</th>
+	  <td> {{ calc.c_707P	}}</td>
+	  <td> {{ calc.g_707P	}}</td>
+	</tr>
+	<tr>
+	  <th>	708(P)	</th>
+	  <td> {{ calc.c_708P	}}</td>
+	  <td> {{ calc.g_708P	}}</td>
+	</tr>
+	<tr>
+	  <th>	709(P)	</th>
+	  <td> {{ calc.c_709P	}}</td>
+	  <td> {{ calc.g_709P	}}</td>
+	</tr>
+      </table>
+
+      <table>
+	<tr>
+	  <th>  S8	</th>
+	  <th>  Credits </th>
+	  <th>  Grade </th>
+	</tr>
+	<tr>
+	  <th>	801	</th>
+	  <td> {{ calc.c_801	}}</td>
+	  <td> {{ calc.g_801	}}</td>
+	</tr>
+	<tr>
+	  <th>	802	</th>
+	  <td> {{ calc.c_802	}}</td>
+	  <td> {{ calc.g_802	}}</td>
+	</tr>
+	<tr>
+	  <th>	L04	</th>
+	  <td> {{ calc.c_L04	}}</td>
+	  <td> {{ calc.g_L04	}}</td>
+	</tr>
+	<tr>
+	  <th>	L05	</th>
+	  <td> {{ calc.c_L05	}}</td>
+	  <td> {{ calc.g_L05	}}</td>
+	</tr>
+	<tr>
+	  <th>	805(P)	</th>
+	  <td> {{ calc.c_805P	}}</td>
+	  <td> {{ calc.g_805P	}}</td>
+	</tr>
+	<tr>
+	  <th>	806(P)	</th>
+	  <td> {{ calc.c_806P	}}</td>
+	  <td> {{ calc.g_806P	}}</td>
+	</tr>
+	<tr>
+	  <th>	807(P)	</th>
+	  <td> {{ calc.c_807P	}}</td>
+	  <td> {{ calc.g_807P	}}</td>
+	</tr>
+      </table>
+
+      {{ calc.submit }}
+    </form>
+  </div>
+
+{% endblock %}

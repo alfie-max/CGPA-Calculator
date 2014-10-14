@@ -1,195 +1,28 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
   <div>
     <h2>Welcome to CGPA Calculator<h2>
   </div>
 
-  <div>
-    <form action = "{{ url_for('home') }}" method=post>
+   {% for message in form.name.errors %}
+      <div class="flash">{{ message }}</div>
+   {% endfor %}
 
-      <table>
-	<tr>
-	  <th>  S1 & S2	</th>
-	  <th>	101	</th>	  <th>	102	</th>
-	  <th>	103	</th>	  <th>	103(P)	</th>
-	  <th>	104	</th>	  <th>	104(P)	</th>
-	  <th>	105	</th>	  <th>	106	</th>
-	  <th>	107	</th>	  <th>	108	</th>
-	  <th>	109(P)	</th>	  <th>	110A(P)	</th>
-	  <th>	110B(P)	</th>
-	</tr>
-	<tr>
-	  <th>Credits</th>
-	  <td> {{ form.c_101	}}</td>	  <td> {{ form.c_102	}}</td>
-	  <td> {{ form.c_103	}}</td>	  <td> {{ form.c_103P	}}</td>
-	  <td> {{ form.c_104	}}</td>	  <td> {{ form.c_104P	}}</td>
-	  <td> {{ form.c_105	}}</td>	  <td> {{ form.c_106	}}</td>
-	  <td> {{ form.c_107	}}</td>	  <td> {{ form.c_108	}}</td>
-	  <td> {{ form.c_109P	}}</td>	  <td> {{ form.c_110AP	}}</td>
-	  <td> {{ form.c_110BP	}}</td>
-	</tr>
-	<tr>
-	  <th>Grade</th>
-	  <td> {{ form.g_101	}}</td>	  <td> {{ form.g_102	}}</td>
-	  <td> {{ form.g_103	}}</td>	  <td> {{ form.g_103P	}}</td>
-	  <td> {{ form.g_104	}}</td>	  <td> {{ form.g_104P	}}</td>
-	  <td> {{ form.g_105	}}</td>	  <td> {{ form.g_106	}}</td>
-	  <td> {{ form.g_107	}}</td>	  <td> {{ form.g_108	}}</td>
-	  <td> {{ form.g_109P	}}</td>	  <td> {{ form.g_110AP	}}</td>
-	  <td> {{ form.g_110BP	}}</td>
-	</tr>
-      </table>
+   <form action="{{ url_for('home') }}" method=POST>
 
-      <table>
-	<tr>
-	  <th>  S3	</th>
-	  <th>	301	</th>	  <th>	302	</th>
-	  <th>	303	</th>	  <th>	304	</th>
-	  <th>	305	</th>	  <th>	306	</th>
-	  <th>	307(P)	</th>	  <th>	308(P)	</th>
-	</tr>
-	<tr>
-	  <th>Credits</th>
-	  <td> {{ form.c_301	}}</td>	  <td> {{ form.c_302	}}</td>
-	  <td> {{ form.c_303	}}</td>	  <td> {{ form.c_304	}}</td>
-	  <td> {{ form.c_305	}}</td>	  <td> {{ form.c_306	}}</td>
-	  <td> {{ form.c_307P 	}}</td>	  <td> {{ form.c_308P	}}</td>
-	</tr>
-	<tr>
-	  <th>Grade</th>
-	  <td> {{ form.g_301	}}</td>	  <td> {{ form.g_302	}}</td>
-	  <td> {{ form.g_303	}}</td>	  <td> {{ form.g_304	}}</td>
-	  <td> {{ form.g_305	}}</td>	  <td> {{ form.g_306	}}</td>
-	  <td> {{ form.g_307P	}}</td>	  <td> {{ form.g_308P	}}</td>
-	</tr>
-      </table>
+     {{ form.name.label }}
+     {{ form.name }}
+     
+     <label for="stream">Stream</label>
+     <select name='stream'>
+       {% for stream in streams %}
+          <option value={{ stream }}> {{ streams[stream] }} </option>
+       {% endfor %}
+     </select>
 
-      <table>
-	<tr>
-	  <th>  S4	</th>
-	  <th>	401	</th>	  <th>	402	</th>
-	  <th>	403	</th>	  <th>	404	</th>
-	  <th>	405	</th>	  <th>	406	</th>
-	  <th>	407(P)	</th>	  <th>	408(P)	</th>
-	</tr>
-	<tr>
-	  <th>Credits</th>
-	  <td> {{ form.c_401	}}</td>	  <td> {{ form.c_402	}}</td>
-	  <td> {{ form.c_403	}}</td>	  <td> {{ form.c_404	}}</td>
-	  <td> {{ form.c_405	}}</td>	  <td> {{ form.c_406	}}</td>
-	  <td> {{ form.c_407P 	}}</td>	  <td> {{ form.c_408P	}}</td>
-	</tr>
-	<tr>
-	  <th>Grade</th>
-	  <td> {{ form.g_401	}}</td>	  <td> {{ form.g_402	}}</td>
-	  <td> {{ form.g_403	}}</td>	  <td> {{ form.g_404	}}</td>
-	  <td> {{ form.g_405	}}</td>	  <td> {{ form.g_406	}}</td>
-	  <td> {{ form.g_407P	}}</td>	  <td> {{ form.g_408P	}}</td>
-	</tr>
-      </table>
-
-      <table>
-	<tr>
-	  <th>  S5	</th>
-	  <th>	501	</th>	  <th>	502	</th>
-	  <th>	503	</th>	  <th>	504	</th>
-	  <th>	505	</th>	  <th>	506	</th>
-	  <th>	507(P)	</th>	  <th>	508(P)	</th>
-	</tr>
-	<tr>
-	  <th>Credits</th>
-	  <td> {{ form.c_501	}}</td>	  <td> {{ form.c_502	}}</td>
-	  <td> {{ form.c_503	}}</td>	  <td> {{ form.c_504	}}</td>
-	  <td> {{ form.c_505	}}</td>	  <td> {{ form.c_506	}}</td>
-	  <td> {{ form.c_507P 	}}</td>	  <td> {{ form.c_508P	}}</td>
-	</tr>
-	<tr>
-	  <th>Grade</th>
-	  <td> {{ form.g_501	}}</td>	  <td> {{ form.g_502	}}</td>
-	  <td> {{ form.g_503	}}</td>	  <td> {{ form.g_504	}}</td>
-	  <td> {{ form.g_505	}}</td>	  <td> {{ form.g_506	}}</td>
-	  <td> {{ form.g_507P	}}</td>	  <td> {{ form.g_508P	}}</td>
-	</tr>
-      </table>
-
-      <table>
-	<tr>
-	  <th>  S6	</th>
-	  <th>	601	</th>	  <th>	602	</th>
-	  <th>	603	</th>	  <th>	604	</th>
-	  <th>	605	</th>	  <th>	Lxx	</th>
-	  <th>	607(P)	</th>	  <th>	608(P)	</th>
-	</tr>
-	<tr>
-	  <th>Credits</th>
-	  <td> {{ form.c_601	}}</td>	  <td> {{ form.c_602	}}</td>
-	  <td> {{ form.c_603	}}</td>	  <td> {{ form.c_604	}}</td>
-	  <td> {{ form.c_605	}}</td>	  <td> {{ form.c_606	}}</td>
-	  <td> {{ form.c_607P 	}}</td>	  <td> {{ form.c_608P	}}</td>
-	</tr>
-	<tr>
-	  <th>Grade</th>
-	  <td> {{ form.g_601	}}</td>	  <td> {{ form.g_602	}}</td>
-	  <td> {{ form.g_603	}}</td>	  <td> {{ form.g_604	}}</td>
-	  <td> {{ form.g_605	}}</td>	  <td> {{ form.g_606	}}</td>
-	  <td> {{ form.g_607P	}}</td>	  <td> {{ form.g_608P	}}</td>
-	</tr>
-      </table>
-
-      <table>
-	<tr>
-	  <th>  S7	</th>
-	  <th>	701	</th>	  <th>	702	</th>
-	  <th>	703	</th>	  <th>	704	</th>
-	  <th>	Lxx	</th>	  <th>	Lxx	</th>
-	  <th>	707(P)	</th>	  <th>	708(P)	</th>
-	  <th>	709(P)	</th>
-	</tr>
-	<tr>
-	  <th>Credits</th>
-	  <td> {{ form.c_701	}}</td>	  <td> {{ form.c_702	}}</td>
-	  <td> {{ form.c_703	}}</td>	  <td> {{ form.c_704	}}</td>
-	  <td> {{ form.c_705	}}</td>	  <td> {{ form.c_706	}}</td>
-	  <td> {{ form.c_707P 	}}</td>	  <td> {{ form.c_708P	}}</td>
-	  <td> {{ form.c_709P	}}</td>
-	</tr>
-	<tr>
-	  <th>Grade</th>
-	  <td> {{ form.g_701	}}</td>	  <td> {{ form.g_702	}}</td>
-	  <td> {{ form.g_703	}}</td>	  <td> {{ form.g_704	}}</td>
-	  <td> {{ form.g_705	}}</td>	  <td> {{ form.g_706	}}</td>
-	  <td> {{ form.g_707P	}}</td>	  <td> {{ form.g_708P	}}</td>
-	  <td> {{ form.g_709P	}}</td>
-	</tr>
-      </table>
-
-      <table>
-	<tr>
-	  <th>  S8	</th>
-	  <th>	801	</th>	  <th>	802	</th>
-	  <th>	Lxx	</th>	  <th>	Lxx	</th>
-	  <th>	805(P)	</th>	  <th>	806(P)	</th>
-	  <th>	807(P)	</th>
-	</tr>
-	<tr>
-	  <th>Credits</th>
-	  <td> {{ form.c_801	}}</td>	  <td> {{ form.c_802	}}</td>
-	  <td> {{ form.c_803	}}</td>	  <td> {{ form.c_804	}}</td>
-	  <td> {{ form.c_805P	}}</td>	  <td> {{ form.c_806P	}}</td>
-	  <td> {{ form.c_807P 	}}</td>
-	</tr>
-	<tr>
-	  <th>Grade</th>
-	  <td> {{ form.g_801	}}</td>	  <td> {{ form.g_802	}}</td>
-	  <td> {{ form.g_803	}}</td>	  <td> {{ form.g_804	}}</td>
-	  <td> {{ form.g_805P	}}</td>	  <td> {{ form.g_806P	}}</td>
-	  <td> {{ form.g_807P	}}</td>
-	</tr>
-      </table>
-
-      {{ form.submit }}
-    </form>
-  </div>
+     {{ form.submit }}
+   </form>
 
 {% endblock %}

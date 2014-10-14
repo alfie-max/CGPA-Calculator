@@ -1,5 +1,9 @@
 from wtforms import Form, TextField, SubmitField, validators, ValidationError
 
+class WelcomeForm(Form):
+    name = TextField("Name", [validators.Required("Please enter your name.")])
+    submit = SubmitField("Submit")
+
 class CalcForm(Form):
     c_range  = [1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10]
     c_error  = u"Invalid entry. Maximum credit allowed is 10"
@@ -40,25 +44,25 @@ class CalcForm(Form):
 
     # Semester 6
     c_601  = c_602 = c_603  = c_604  = \
-    c_605  = c_606 = c_607P = c_608P = TextField([validators.AnyOf(values = c_range, message = c_error)])
+    c_605  = c_L01 = c_607P = c_608P = TextField([validators.AnyOf(values = c_range, message = c_error)])
 
     g_601  = g_602 = g_603  = g_604  = \
-    g_605  = g_606 = g_607P = g_608P = TextField([validators.AnyOf(values = g_range, message = g_error)])
+    g_605  = g_L01 = g_607P = g_608P = TextField([validators.AnyOf(values = g_range, message = g_error)])
 
     # Semester 7
     c_701  = c_702  = c_703  = c_704  = \
-    c_705  = c_706  = c_707P = c_708P = \
+    c_L02  = c_L03  = c_707P = c_708P = \
     c_709P = TextField([validators.AnyOf(values = c_range, message = c_error)])
 
     g_701  = g_702  = g_703  = g_704  = \
-    g_705  = g_706  = g_707P = g_708P = \
+    g_L02  = g_L03  = g_707P = g_708P = \
     g_709P = TextField([validators.AnyOf(values = g_range, message = g_error)])
 
     # Semester 8
-    c_801  = c_802  = c_803  = c_804 = \
+    c_801  = c_802  = c_L04  = c_L05 = \
     c_805P = c_806P = c_807P = TextField([validators.AnyOf(values = c_range, message = c_error)])
 
-    g_801  = g_802  = g_803  = g_804 = \
+    g_801  = g_802  = g_L04  = g_L05 = \
     g_805P = g_806P = g_807P = TextField([validators.AnyOf(values = g_range, message = g_error)])
 
     # Calculate Button
