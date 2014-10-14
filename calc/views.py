@@ -2,6 +2,9 @@ import config
 from calc import app
 from flask import render_template, request
 from forms import WelcomeForm, CalcForm
+from calculator import calculate
+
+global syllabus
 
 @app.route('/', methods=['GET','POST'])
 def home():
@@ -13,14 +16,16 @@ def home():
                    'C':'6.5', 'D':'5.5', 'E':'4.5', 'U':'0'}
         name = form.name.data
         stream = config.STREAM_CODE[request.form['stream']]
+        global syllabus
+        syllabus = config.STREAM[stream]
         return render_template('calc.html', name=name, 
-                               syllabus = config.STREAM[stream],
+                               syllabus = syllabus,
                                stream = stream,
                                grades = grades,
                                calc = calcform)
 
     elif request.method == 'POST' and calcform.validate():
-        return render_template('result.html')
+        return render_template('result.html', result = calculate(request.form, syllabus))
 
     else:
         return render_template('home.html', form = form, 
