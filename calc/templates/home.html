@@ -9,6 +9,9 @@
    {% for message in form.name.errors %}
       <div class="flash">{{ message }}</div>
    {% endfor %}
+   {% if form.errors.stream %}
+      <div class="flash">{{ form.errors['stream'] }}</div>
+   {% endif %}
 
    <form action="{{ url_for('home') }}" method=POST>
 
