@@ -2,7 +2,7 @@ import config
 from calc import app
 from flask import render_template, request
 from forms import WelcomeForm, CalcForm
-from calculator import calculate
+from calculator import calculate, grades
 
 global syllabus
 
@@ -12,8 +12,6 @@ def home():
     calcform = CalcForm(request.form)
 
     if request.method == 'POST' and form.validate():
-        grades  = {'':'0', 'S':'10', 'A':'8.5', 'B':'7.5', 
-                   'C':'6.5', 'D':'5.5', 'E':'4.5', 'U':'0'}
         name = form.name.data
         stream = config.STREAM_CODE[request.form['stream']]
         global syllabus

@@ -1,3 +1,15 @@
+from collections import OrderedDict
+
+grades = OrderedDict()
+grades[''] = '0'
+grades['S'] = '10'
+grades['A'] = '8.5'
+grades['B'] = '7.5'
+grades['C'] = '6.5'
+grades['D'] = '5.5'
+grades['E'] = '4.5'
+grades['U'] = '0'
+
 def calculate(grades, syllabus):
     s1_s2 = (syllabus['s1_s2']['c101']   * float(grades['g_101'])    + \
              syllabus['s1_s2']['c102']   * float(grades['g_102'])    + \
