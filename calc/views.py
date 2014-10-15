@@ -22,7 +22,7 @@ def home():
                                grades = grades,
                                calc = calcform)
 
-    elif request.method == 'POST' and calcform.validate():
+    elif request.method == 'POST' and request.form['submit'] == 'Calculate':
         return render_template('result.html', result = calculate(request.form, syllabus))
 
     else:
